@@ -55,18 +55,6 @@ export async function createOrders(
     return doTransaction(async (session) => {
       let allBookCount = new Map();
       for (const order of orderInfo) {
-        if (
-          !order ||
-          order === undefined ||
-          !order.user_id ||
-          order.user_id === undefined ||
-          !order.books ||
-          order.books === undefined ||
-          order.books.size === 0
-        ) {
-          throw new Error("Order must have at least one book");
-        }
-
         order.books = new Map(Object.entries(order.books));
 
         // check if any book count is not greater than 0

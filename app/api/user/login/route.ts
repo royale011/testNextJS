@@ -8,6 +8,7 @@ import { userLogin } from "@/app/lib/models/User";
 // Parameter username and password are required
 // The password will be hashed before comparing
 // The password hashing is done in the model
+// In this demo, login has no more functionalities, since cookie is not implemented.
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const username = searchParams.get("username");
